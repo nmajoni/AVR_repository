@@ -37,7 +37,7 @@ int main(void)
     adc_init();
 	
     while (1) 
-    {
+    { 
          OCR0A = adc_val()/4;  //maping (0 - 255) to (0 - 1023) 
     }
 }
