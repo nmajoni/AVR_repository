@@ -17,9 +17,9 @@ void fast_pwm_init()
 
 int main(void)
 {
-	uint8_t brightness;
+    uint8_t brightness;
     DDRB |= (1u << PINB7); //set OC0A pin as output 
-	fast_pwm_init();       
+    fast_pwm_init();       
 	
     while (1) 
     {
