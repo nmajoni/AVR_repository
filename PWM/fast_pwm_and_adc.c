@@ -21,6 +21,7 @@ void adc_init()
 	ADCSRA  |= (1u << ADEN)|(1u << ADPS0)|(1u << ADPS1)|(1u << ADPS2); //Enable ADC and set prescale of 128 so 125000Hz
 }
 
+//get adc result
 uint16_t adc_val()
 {
 	ADCSRA |= (1u << ADSC);       //Start conversion
@@ -32,26 +33,12 @@ uint16_t adc_val()
 int main(void)
 {
     DDRB |= (1u << PINB7); //set OC0A pin as output 
-	fast_pwm_init();       
-	adc_init();
+    fast_pwm_init();       
+    adc_init();
 	
     while (1) 
-    {
-
-		OCR0A = adc_val()/4;  //maping (0 - 255) to (0 - 1023) 
-		/*
-		//Increasing and decreasing LED brightness
-		for (brightness = 0; brightness < 255; brightness++)
-		{
-			OCR0A = brightness;
-			_delay_ms(5);
-		}
-		for (brightness = 255; brightness > 0; brightness--)
-		{
-			OCR0A = brightness;
-			_delay_ms(5);
-		}
-		*/
+    { 
+         OCR0A = adc_val()/4;  //maping (0 - 255) to (0 - 1023) 
     }
 }
 

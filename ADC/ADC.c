@@ -2,7 +2,7 @@
  * ADC.c
  * ATMEGA 2560
  * Created: 25-Feb-17 16:39:22
- * Author : nmajo
+ * Author : nyasha majoni
  */ 
 
 #include <avr/io.h>
@@ -22,12 +22,12 @@ uint16_t adc_val()
 
 int main(void)
 {
-	volatile uint16_t adc_result;
-	adc_init();
+   volatile uint16_t adc_result;
+   adc_init();
 	
     while (1) 
     {
-		adc_result = adc_val();  
+	adc_result = adc_val();  
     }
 }
 
