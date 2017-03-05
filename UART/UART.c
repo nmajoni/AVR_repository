@@ -19,7 +19,7 @@ void UART_init(void)
 	UBRR0H = (BAUDRATE >> 8); //shift to the right by 8 bits, the first 4 bits of the register are occupied
 	UBRR0L = BAUDRATE;
 	/*set up transmit and receive*/
-    UCSR0B |= (1u << RXEN0)|(1u << TXEN0);     //Enable UART transmit and receive
+        UCSR0B |= (1u << RXEN0)|(1u << TXEN0);     //Enable UART transmit and receive
 	UCSR0C |= (1u << UCSZ01)|(1u << UCSZ00);   //8 bit data format
 }
 
@@ -40,20 +40,20 @@ unsigned char UART_receive(void)
 
 int main(void)
 {
-	UART_init();
+    UART_init();
     DDRB |= 0xFF;
 	
     while (1) 
     {
-		unsigned char c;
-			
-		//UART_transmit('8');
-	
-		c = UART_receive();
-		if (c == 'a')
-		{
-			PORTB |= (1u << PINB7);  //received data via serial monitor and used the on-board LED to check
-		}
+	unsigned char c;
+
+	//UART_transmit('8');
+
+	c = UART_receive();
+	if (c == 'a')
+	{
+		PORTB |= (1u << PINB7);  //received data via serial monitor and used the on-board LED to check
+	}
     }
 }
 
