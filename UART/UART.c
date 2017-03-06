@@ -26,7 +26,7 @@ void UART_init(void)
 //function to transmit data
 void UART_transmit(unsigned char data)
 {
-	while (!(UCSR0A & (1u << UDRE0)));   //wait until transmitter is ready, ie  UDRE0 = 0;
+	while (!(UCSR0A & (1u << UDRE0)));   //wait until transmitter is ready, ie  UDRE0 = 1;
 	/*implement start bit*/
 	UDR0 = data;  //Get that data out, load data
 }
