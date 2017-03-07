@@ -32,14 +32,14 @@ void serial_write(char  c[]);
 //main function
 int main(void)
 {
-	UART_init();
+    UART_init();
     DDRB |= 0xFF;
-	sei();
-	serial_read_pos  = 0;
-	serial_write_pos = 0;
-	
-	serial_write("Hello\n\r");
-	serial_write("Buddy\n\r");
+    sei();
+    serial_read_pos  = 0;
+    serial_write_pos = 0;
+
+    serial_write("Hello\n\r");
+    serial_write("Buddy\n\r");
 	
     while (1) 
     {
