@@ -2,7 +2,7 @@
  * I2C.h
  *
  * Created: 07-Mar-17 12:44:32
- *  Author: nmajo
+ *  Author: nyasha majoni
  */ 
 
 
