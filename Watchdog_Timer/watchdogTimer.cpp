@@ -1,5 +1,5 @@
 /*
- * watchdogTimer.c
+ * watchdogTimer.cpp
  * A little program to set and test the watchdog timer on the Atmega328P. 
  * Each time we get stuck in the second while loop the program get rescued after 2s by the watchdog.
  *
@@ -16,25 +16,25 @@ void watchdog_init(void);
 
 int main(void)
 {
-	uint32_t run_away = 0;
+    uint32_t run_away = 0;
     DDRB |= (1u << PINB5);
     watchdog_init();
 	
     while (1) 
     {
 		
-		PORTB |=  (1u << PINB5);
-		_delay_ms(500);   //blocking delay 500ms
-		PORTB &= ~(1u << PINB5);
-		_delay_ms(500);   //blocking delay 500ms 
-		
-		run_away++;
-		while(run_away >= 10);
-		{
-			//the program is stuck here and can only be rescued by the watchdog
-		}
-		
-		wdt_reset();
+	PORTB |=  (1u << PINB5);
+	_delay_ms(500);   //blocking delay 500ms
+	PORTB &= ~(1u << PINB5);
+	_delay_ms(500);   //blocking delay 500ms 
+
+	run_away++;
+	while(run_away >= 10);
+	{
+		//the program is stuck here and can only be rescued by the watchdog
+	}
+
+	wdt_reset();
     }
 }
 
